@@ -16,6 +16,8 @@ module.exports = {
     browser: true,
   },
   extends: ['airbnb', 'airbnb/hooks'],
+  settings: {
+  },
   rules: {
     'arrow-parens': [ERROR, 'as-needed', { requireForBlockBody: true }],
     'generator-star-spacing': 0,
@@ -27,6 +29,7 @@ module.exports = {
     'no-return-assign': 0,
     'no-console': 'warn',
     'no-unused-vars': ['warn'],
+    'import/no-unresolved': 0,
     'space-before-function-paren': ['error', {
       anonymous: 'always',
       named: 'never',
@@ -60,6 +63,7 @@ module.exports = {
   },
   plugins: ['babel'],
   globals: {
+    NODE_ENV: false,
     test: true,
     expect: true,
     module: false,
