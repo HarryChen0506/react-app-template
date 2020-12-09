@@ -51,9 +51,6 @@ function AppRouter() {
   return (
     <Router>
       <Switch>
-        {/* <Route path="/" exact component={() => <BasicLayout><About /></BasicLayout>} />
-        <Route path="/about/" component={About} />
-        <Route path="/users/" component={Users} /> */}
         {createRoutes(routerConfig)}
       </Switch>
     </Router>
