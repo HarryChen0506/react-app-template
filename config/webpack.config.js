@@ -60,6 +60,7 @@ const cssRegex = /\.css$/;
 const cssModuleRegex = /\.module\.css$/;
 const sassRegex = /\.(scss|sass)$/;
 const sassModuleRegex = /\.module\.(scss|sass)$/;
+const lessRegex = /\.less$/
 
 const hasJsxRuntime = (() => {
   if (process.env.DISABLE_NEW_JSX_TRANSFORM === 'true') {
@@ -334,8 +335,9 @@ module.exports = function (webpackEnv) {
         ...(modules.webpackAliases || {}),
         '@/src': path.resolve(process.cwd(), './src'),
         '@/config': path.resolve(process.cwd(), './src/config'),
-        '@/constants': path.resolve(process.cwd(), './src/constants'),
+        '@/layouts': path.resolve(process.cwd(), './src/layouts'),
         '@/components': path.resolve(process.cwd(), './src/components'),
+        '@/constants': path.resolve(process.cwd(), './src/constants'),
         '@/assets': path.resolve(process.cwd(), './src/assets'),
         '@/pages': path.resolve(process.cwd(), './src/pages'),
         '@/model': path.resolve(process.cwd(), './src/model'),
@@ -540,6 +542,20 @@ module.exports = function (webpackEnv) {
                 },
                 'sass-loader'
               ),
+            },
+            {
+              test: lessRegex,
+              use: [{
+                loader: 'style-loader' // creates style nodes from JS strings
+              }, {
+                loader: 'css-loader' // translates CSS into CommonJS
+              }, {
+                loader: 'less-loader', // compiles Less to CSS
+                options: {
+                  javascriptEnabled: true,
+                  // modifyVars: theme
+                }
+              }]
             },
             // "file" loader makes sure those assets get served by WebpackDevServer.
             // When you `import` an asset, you get its (virtual) filename.
