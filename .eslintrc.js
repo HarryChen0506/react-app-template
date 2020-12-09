@@ -64,8 +64,8 @@ module.exports = {
   plugins: ['babel'],
   globals: {
     NODE_ENV: false,
-    test: true,
-    expect: true,
+    test: false,
+    expect: false,
     module: false,
     require: false,
     __dirname: false,
@@ -73,5 +73,6 @@ module.exports = {
     Promise: false,
     Reflect: false,
     Set: false,
+    __MOCK__: false,
   },
 };

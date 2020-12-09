@@ -62,9 +62,9 @@ const routerConfig = [
   {
     path: '/',
     component: BasicLayout,
-    authority: ['admin', 'user'],
+    authority: [], // 'admin', 'user'
     routes: [
-      { path: '/dashboard', name: 'dashboard', exact: true, authority: ['user'], component: Dashboard },
+      { path: '/dashboard', name: 'dashboard', exact: true, authority: [], component: Dashboard },
       // { path: '/studyList', name: 'studyList', exact: true, component: StudyList },
       // { path: '/templateManage', name: 'templateManage', exact: true, component: ReportTemplateManage },
       // { path: '/guide', name: 'guide', exact: true, component: Guide },

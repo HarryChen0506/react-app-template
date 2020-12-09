@@ -1,7 +1,7 @@
 import React from 'react';
 
 // import check from './CheckPermissions';
-const Result = () => <div>你没有权限</div>;
+const Result = () => <div>你没有权限...</div>;
 
 function checkValid(list = [], target = []) {
   let flag = false;
@@ -17,9 +17,8 @@ function checkValid(list = [], target = []) {
 }
 
 function check(authority, currentAuthority, target, Exception) {
-  const CURRENT = currentAuthority;
-  console.log('check', authority, CURRENT, checkValid(authority, CURRENT));
-  const isValid = checkValid(authority, CURRENT);
+  // console.log('check', authority, currentAuthority, checkValid(authority, currentAuthority));
+  const isValid = checkValid(authority, currentAuthority);
   if (isValid) {
     return target;
   }

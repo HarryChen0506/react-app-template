@@ -1,7 +1,7 @@
 import React from 'react';
-import Demo from '@/components/Demo';
 import { useSelector } from 'react-redux';
 import Authorized from '@/components/Authorized';
+import Demo from './Demo';
 
 const Dashboard = (props) => {
   const { authority } = props;

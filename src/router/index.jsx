@@ -33,7 +33,7 @@ const RouteWithSubRoutes = (route) => {
         if (route.component) {
           // 路由有layout组件
           return (
-            <route.component authority={route.authority}>
+            <route.component authority={route.authority || []}>
               {childrenRoutes}
             </route.component>
           );
