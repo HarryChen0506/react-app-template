@@ -34,12 +34,12 @@ export const user = {
     return mockRequest();
   },
   currentUser(data) {
-    // return request({
-    //   url: path.user.currentUser,
-    //   method: 'post',
-    //   data,
-    // });
-    return mockRequest();
+    return request({
+      url: path.user.currentUser,
+      method: 'get',
+      data,
+    });
+    // return mockRequest();
   },
 };
 

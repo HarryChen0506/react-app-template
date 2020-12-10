@@ -23,32 +23,6 @@ const codeMessage = {
   503: '服务不可用，服务器暂时过载或维护。',
   504: '网关超时。',
 };
-/**
- * 异常处理程序
- */
-
-// const errorHandler = error => {
-//   const { response } = error;
-//   if (response && response.status) {
-//     const errorText = codeMessage[response.status] || response.statusText;
-//     const { status, url } = response;
-//     notification.error({
-//       message: `请求错误 ${status}: ${url}`,
-//       description: errorText,
-//     });
-//   } else if (!response) {
-//     notification.error({
-//       description: '您的网络发生异常，无法连接服务器',
-//       message: '网络异常',
-//     });
-//   }
-//   throw error;
-//   // return response;
-// };
-
-/**
- * 配置request请求时的默认参数
- */
 
 const addHeader = (headers = {}) => {
   const token = Session.getToken();
@@ -74,6 +48,7 @@ const preprocess = (options = {}) => {
     newUrl = compile(newUrl, { encode: encodeURIComponent })(params);
     newUrl = domain + newUrl;
   } catch (e) {
+    // eslint-disable-next-line no-console
     console.error(e.message);
   }
   const newHeaders = addHeader(headers);
@@ -96,13 +71,15 @@ const preprocess = (options = {}) => {
 const request = (options = {}) => {
   const requestOptions = preprocess(options);
   return axios(requestOptions).then((res) => {
+    // console.log(res);
+    // 根据后端返回体类型，在此修改判断
     const data = res.data || {};
     data.httpCode = res.status;
-    if (data.code === 200) {
-      data.status = 'ok';
+    if (data.status === 200) {
+      data.statusText = 'OK';
       return data;
     }
-    if (data.code === 1001) {
+    if (data.status === 1001) {
       // history.replace({
       //   pathname: '/user/login',
       // });
@@ -116,12 +93,14 @@ const request = (options = {}) => {
     if (response && response.status) {
       const errorText = codeMessage[response.status] || response.statusText;
       const { status, data } = response;
+      // eslint-disable-next-line no-console
       console.error(`请求错误 ${status}: ${data.path}`, errorText);
       // notification.error({
       //   message: ,
       //   description: errorText,
       // });
     } else if (!response) {
+      // eslint-disable-next-line no-console
       console.error('您的网络发生异常，无法连接服务器');
       // notification.error({
       //   description: '',
