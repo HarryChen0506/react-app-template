@@ -4,9 +4,9 @@ const MOCK_API = '/mockapi'
 const PROD_API = '/api'
 
 const calcApiPrefix = (isMock) => {
-  // if (isMock || __MOCK__) {
-  //   return MOCK_API
-  // }
+  if (isMock || __MOCK__) {
+    return MOCK_API
+  }
   return PROD_API
 }
 

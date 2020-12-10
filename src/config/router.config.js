@@ -61,6 +61,11 @@ import Dashboard from '@/pages/Dashboard'
 const routerConfig = [
   {
     path: '/',
+    exact: true,
+    redirect: '/dashboard',
+  },
+  {
+    path: '/',
     component: BasicLayout,
     authority: [], // 'admin', 'user'
     routes: [

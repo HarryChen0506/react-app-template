@@ -62,6 +62,18 @@ const sassRegex = /\.(scss|sass)$/;
 const sassModuleRegex = /\.module\.(scss|sass)$/;
 const lessRegex = /\.less$/
 
+// node script args
+const args = process.env.args ? JSON.parse(process.env.args) : {}
+function getDefinePluginConfig(env, args) {
+  const isMock = !!args.mock
+  return {
+    ...env.stringified,
+    __MOCK__: JSON.stringify(isMock),
+    __DEV__: process.env.NODE_ENV === 'development',
+    __VERSION__: JSON.stringify(appPackageJson.version)
+  }
+}
+
 const hasJsxRuntime = (() => {
   if (process.env.DISABLE_NEW_JSX_TRANSFORM === 'true') {
     return false;
@@ -335,6 +347,7 @@ module.exports = function (webpackEnv) {
         ...(modules.webpackAliases || {}),
         '@/src': path.resolve(process.cwd(), './src'),
         '@/config': path.resolve(process.cwd(), './src/config'),
+        '@/locales': path.resolve(process.cwd(), './src/locales'),
         '@/layouts': path.resolve(process.cwd(), './src/layouts'),
         '@/components': path.resolve(process.cwd(), './src/components'),
         '@/constants': path.resolve(process.cwd(), './src/constants'),
@@ -343,6 +356,8 @@ module.exports = function (webpackEnv) {
         '@/model': path.resolve(process.cwd(), './src/model'),
         '@/utils': path.resolve(process.cwd(), './src/utils'),
         '@/services': path.resolve(process.cwd(), './src/services'),
+        '@/libs': path.resolve(process.cwd(), './src/libs'),
+        '@/vc-ui': path.resolve(process.cwd(), './src/libs/vc-ui'),
       },
       plugins: [
         // Adds support for installing with Plug'n'Play, leading to faster installs and adding
@@ -626,7 +641,7 @@ module.exports = function (webpackEnv) {
       // It is absolutely essential that NODE_ENV is set to production
       // during a production build.
       // Otherwise React will be compiled in the very slow development mode.
-      new webpack.DefinePlugin(env.stringified),
+      new webpack.DefinePlugin(getDefinePluginConfig(env, args)),
       // This is necessary to emit hot updates (CSS and Fast Refresh):
       isEnvDevelopment && new webpack.HotModuleReplacementPlugin(),
       // Experimental hot reloading for React .
