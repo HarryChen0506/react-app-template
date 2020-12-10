@@ -55,9 +55,12 @@
 //     ]
 //   }
 // ]
-import React from 'react'
+
+// import React from 'react'
 import BasicLayout from '@/layouts/BasicLayout'
 import Dashboard from '@/pages/Dashboard'
+import Login from '@/pages/Login'
+
 const routerConfig = [
   {
     path: '/',
@@ -65,38 +68,18 @@ const routerConfig = [
     redirect: '/dashboard',
   },
   {
+    path: '/login',
+    component: Login,
+    exact: true
+  },
+  {
     path: '/',
     component: BasicLayout,
     authority: [], // 'admin', 'user'
     routes: [
-      { path: '/dashboard', name: 'dashboard', exact: true, authority: [], component: Dashboard },
-      // { path: '/studyList', name: 'studyList', exact: true, component: StudyList },
-      // { path: '/templateManage', name: 'templateManage', exact: true, component: ReportTemplateManage },
-      // { path: '/guide', name: 'guide', exact: true, component: Guide },
+      { path: '/dashboard', name: 'dashboard', exact: true, authority: ['admin', 'user'], component: Dashboard },
     ]
   },
-  // {
-  //   path: '/login',
-  //   component: Login,
-  //   exact: true
-  // },
-  // {
-  //   path: '/view',
-  //   component: ViewportLayout,
-  //   routes: [
-  //     { path: '/view/:studyId', name: 'viewer', exact: true, component: Viewer },
-  //   ]
-  // },
-  // {
-  //   path: '/',
-  //   component: HeaderLayout,
-  //   routes: [
-  //     { path: '/dashboard', name: 'dashboard', exact: true, component: Dashboard },
-  //     { path: '/studyList', name: 'studyList', exact: true, component: StudyList },
-  //     { path: '/templateManage', name: 'templateManage', exact: true, component: ReportTemplateManage },
-  //     { path: '/guide', name: 'guide', exact: true, component: Guide },
-  //   ]
-  // }
 ]
 
 export default routerConfig

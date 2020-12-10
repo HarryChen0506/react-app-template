@@ -2,14 +2,14 @@
 import { request } from '@/utils/request';
 import { path } from '@/config/api.config';
 
-const mockRequest = () => new Promise((resolve, reject) => {
+const mockRequest = () => new Promise((resolve) => {
   setTimeout(() => {
     resolve({
       status: 200,
       msg: 'success',
       data: {
         username: 'abc',
-        token: '123',
+        token: 'token_123456',
         userId: '123abc',
       },
     });
@@ -20,6 +20,22 @@ export const user = {
   login(data) {
     // return request({
     //   url: path.user.login,
+    //   method: 'post',
+    //   data,
+    // });
+    return mockRequest();
+  },
+  logout(data) {
+    // return request({
+    //   url: path.user.logout,
+    //   method: 'post',
+    //   data,
+    // });
+    return mockRequest();
+  },
+  currentUser(data) {
+    // return request({
+    //   url: path.user.currentUser,
     //   method: 'post',
     //   data,
     // });

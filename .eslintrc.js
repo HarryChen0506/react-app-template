@@ -35,12 +35,12 @@ module.exports = {
       named: 'never',
       asyncArrow: 'always',
     }],
-    'no-unused-expressions': [WARN, {
+    'no-unused-expressions': [OFF, {
       allowTaggedTemplates: true,
       allowShortCircuit: true,
       allowTernary: true,
     }],
-    'babel/no-unused-expressions': [WARN, {
+    'babel/no-unused-expressions': [OFF, {
       allowShortCircuit: false,
       allowTernary: false,
       allowTaggedTemplates: false,

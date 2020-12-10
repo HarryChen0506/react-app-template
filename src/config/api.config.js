@@ -18,6 +18,7 @@ function getHost() {
 export const path = {
   user: {
     login: `${getHost()}${calcApiPrefix()}/login`,
+    logout: `${getHost()}${calcApiPrefix()}/logout`,
     currentUser: `${getHost()}${calcApiPrefix()}/user/info`,
   },
   core: {
