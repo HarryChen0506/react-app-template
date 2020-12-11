@@ -2,10 +2,10 @@
 
 A react application framework.
 
-## frame construction
+### construction
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-App = react + react-dom + react-redux + axios + react-intl
+* This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+* App = react + react-dom + react-redux + axios + react-intl
 
 ### init 
 
