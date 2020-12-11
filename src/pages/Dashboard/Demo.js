@@ -19,7 +19,7 @@ const Demo = () => {
     });
   };
   const handleQueryUser = () => {
-    coreHttpService.demo({ userId: '123' }, { type: 'web' }).then((res) => {
+    coreHttpService.demo({ id: '123' }, { type: 'web' }).then((res) => {
       console.log(res);
     }, (err) => {
       console.log(err.message);

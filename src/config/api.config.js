@@ -22,7 +22,7 @@ export const path = {
     currentUser: `${getHost()}${calcApiPrefix()}/user/info`,
   },
   core: {
-    demo: `${getHost()}${calcApiPrefix()}/demo/:userId`,
+    demo: `${getHost()}${calcApiPrefix()}/demo/:id`,
   },
   common: {
   }

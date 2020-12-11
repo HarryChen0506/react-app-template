@@ -1,3 +1,4 @@
+import { LocalStorage } from '@/utils/util';
 import {
   LOAD_SETTING_DATA,
   CLEAR_SETTING_DATA,
@@ -13,6 +14,7 @@ export const clearSettingData = () => ({
 });
 
 export const setLocale = lang => (dispatch) => {
+  LocalStorage.save('locale', lang);
   dispatch(loadSettingData({
     locale: lang,
   }));

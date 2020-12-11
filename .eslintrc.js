@@ -74,5 +74,6 @@ module.exports = {
     Reflect: false,
     Set: false,
     __MOCK__: false,
+    INFINITY: false,
   },
 };

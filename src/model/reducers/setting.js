@@ -1,10 +1,11 @@
+import { LocalStorage } from '@/utils/util';
 import {
   LOAD_SETTING_DATA,
   CLEAR_SETTING_DATA,
 } from '../constants/setting';
 
 const INITIAL_SETTING = {
-  locale: 'zh-CN',
+  locale: LocalStorage.get('locale') || 'zh-CN',
   theme: 'light',
 };
 
