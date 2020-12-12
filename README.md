@@ -41,6 +41,14 @@ $ npm run dev:mock  // backend api is remote mock data
 $ npm run build
 ```
 
+### build nginx configuration
+
+
+``` 
+
+$ npm run build:nginx -- --PORT=3000 --HOST=https://yapi.voxelcloud.net.cn/
+```
+
 ### code commit
 
 ``` 

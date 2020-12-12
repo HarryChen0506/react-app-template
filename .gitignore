@@ -11,6 +11,9 @@
 # production
 /build
 
+/temp
+/nginx
+
 # misc
 .DS_Store
 .env.local
