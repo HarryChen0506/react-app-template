@@ -12,7 +12,8 @@
 /build
 
 /temp
-/nginx
+
+/etc
 
 # misc
 .DS_Store

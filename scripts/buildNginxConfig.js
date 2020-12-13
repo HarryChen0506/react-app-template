@@ -4,7 +4,7 @@ const handlebars = require('handlebars');
 const chalk = require('react-dev-utils/chalk');
 const argv = require('./tool/args.format')
 
-const dirName = 'nginx'
+const dirName = 'etc'
 
 function touchFile(content, dist) {
   shell.echo(content).to(dist)
@@ -32,7 +32,7 @@ function createConfigFile() {
   var content = `server {
     listen {{PORT}};
     error_page 404  /404.html;
-    server_name lnma;
+    server_name react-app;
 
     index index.htm index.html index.php;
     root {{ROOT}}; 
