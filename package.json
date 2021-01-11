@@ -7,6 +7,7 @@
     "dev": "cross-env PORT=8000 node scripts/start.js",
     "dev:mock": "cross-env PORT=8000 node scripts/start.js --mock",
     "build": "cross-env GENERATE_SOURCEMAP=false node scripts/build.js",
+    "build:CI": "cross-env GENERATE_SOURCEMAP=false CI=false node scripts/build.js",
     "build:nginx": "node scripts/buildNginxConfig.js",
     "test": "node scripts/test.js",
     "commit": "git cz"

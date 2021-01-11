@@ -23,7 +23,7 @@ const routerConfig = [
   {
     path: '/',
     component: BasicLayout,
-    authority: [], // 'admin', 'user'
+    authority: [], // [admin|user]
     routes: [
       { path: '/dashboard', name: 'dashboard', exact: true, authority: ['admin', 'user'], component: Dashboard },
     ]
