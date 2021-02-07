@@ -33,6 +33,8 @@ module.exports = {
     'max-len': [0],
     'consistent-return': [0],
     'import/no-unresolved': 0,
+    'import/no-duplicates': 0,
+    'import/no-extraneous-dependencies': 0,
     camelcase: [0],
     'no-param-reassign': [0],
     'space-before-function-paren': ['error', {
@@ -79,6 +81,7 @@ module.exports = {
     Reflect: false,
     Set: false,
     __MOCK__: false,
+    __DEV__: false,
     INFINITY: false,
   },
 };

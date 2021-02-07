@@ -170,5 +170,10 @@
       "jest-watch-typeahead/testname"
     ],
     "resetMocks": true
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
